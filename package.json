@@ -1,0 +1,17 @@
+{
+  "name": "npm-app",
+  "version": "1.0.0",
+  "description": "test build with npm",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "matt holloway",
+  "license": "MIT",
+  "dependencies": {
+    "bootswatch": "^4.2.1",
+    "gmaps": "^0.4.24",
+    "jquery": "^3.3.1",
+    "moment": "^2.24.0"
+  }
+}
