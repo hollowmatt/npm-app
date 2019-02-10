@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 export default class Create extends Component {
   render() {
@@ -16,7 +18,9 @@ export default class Create extends Component {
           </div>
           <div className="form-group">
             <label>Add GST Number: </label>
-            <input type="text" className="form-control"/>
+            <div>
+      				<Slider dots step={20} defaultValue={100}  dotStyle={{ borderColor: 'orange' }} activeDotStyle={{ borderColor: 'yellow' }} />
+    				</div>
           </div>
           <div className="form-group">
             <input type="submit" value="Register Business" className="btn btn-primary"/>
