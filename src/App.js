@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Create from './components/create.component';
 import Edit from './components/edit.component';
 import Index from './components/index.component';
+import Day from './components/day.component';
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={'/'} className="navbar-brand">React </Link>
+            <Link to={'/'} className="navbar-brand">Charlotte's Web </Link>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
               <li className="nav-item">
@@ -26,15 +27,18 @@ class App extends Component {
                 <li className="nav-item">
                   <Link to={'/index'} className="nav-link">Index</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to={'/howday'} className="nav-link">How is your Day?</Link>
+                </li>
               </ul>
             </div>
           </nav>
           <br/>
-          <h2>How is your day</h2>
           <Switch>
             <Route exact path='/create' component={ Create } />
             <Route exact path='/edit/:id' component={ Edit } />
             <Route exact path='/index' component={ Index } />
+            <Route exact path='/howday' component= { Day } />
           </Switch>
         </div>
       </Router>

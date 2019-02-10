@@ -1,0 +1,27 @@
+.day-btn {
+  border-radius: 0 !important;
+}
+
+.orange-background {background-color:#f7991c;}
+.button-text {color:#333;}
+
+.day-box {
+	border-style: solid;
+	padding: 10px;
+}
+
+.label-text {
+	padding: 10px;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    background:white;
+    border-radius:0px;
+    border:2px solid #555;
+}
+input[type='checkbox']:checked {
+    background: #abd;
+}
