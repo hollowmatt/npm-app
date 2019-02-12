@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
 
-const marks = {
-	1: {
-		style: {
-			color: 'green'
-		},
-		label: <strong>1</strong>
-	},
-	2: '2',
-	3: '3',
-	4: '4',
-	5: '5',
-	6: '6',
-	7: {
-		style: {
-			color: 'red'
-		},
-		label: <strong>7</strong>
-	}
-};
 export default class Create extends Component {
+  constructor(props) {
+  	super(props);
+  	this.onChangePersonName = this.onChangePersonName.bind(this);
+  	this.onChangeBusinessName = this.onChangeBusinessName.bind(this);
+  	this.onChangeGstNumber = this.onChangeGstNumber.bind(this);
+  	this.onSubmit = this.onSubmit.bind(this);
+  	
+
+  	this.state = {
+  		person_name: '',
+  		business_name: '',
+  		business_gst_number: ''
+  	}
+  }
+
+  onChangePersonName(e) {
+  	this.setState({ person_name: e.target.value });
+  }
+
+  onChangeBusinessName(e) {
+  	this.setState({ business_name: e.target.value });
+  }
+
+  onChangeGstNumber(e) {
+  	this.setState({ business_gst_number: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    console.log(`The values are ${this.state.person_name}, ${this.state.business_name}, and ${this.state.business_gst_number}`)
+    this.setState({
+      person_name: '',
+      business_name: '',
+      business_gst_number: ''
+    })
+  }
+
   render() {
     return (
       <div style={{marginTop: 10}}>
@@ -29,17 +45,27 @@ export default class Create extends Component {
         <form>
           <div className="form-group">
             <label>Add Person Name:  </label>
-            <input type="text" className="form-control"/>
+            <input 
+            		type="text" 
+            		className="form-control"
+            		value={this.state.person_name}
+            		onChange={this.onChangePersonName}/>
           </div>
           <div className="form-group">
             <label>Add Business Name: </label>
-            <input type="text" className="form-control"/>
+            <input 
+            		type="text" 
+            		className="form-control"
+            		value={this.state.business_name}
+            		onChange={this.onChangeBusinessName}/>
           </div>
           <div className="form-group">
-            <label>How bad was your day?: </label>
-            <div>
-      				Great! <Slider dots min={1} max={7} marks={marks} step={1} defaultValue={4} /> Terrible! <br/>
-    				</div>
+              <label>Add GST Number: </label>
+              <input 
+            		type="text" 
+            		className="form-control"
+            		value={this.state.business_gst_number}
+            		onChange={this.onChangeGstNumber}/>
           </div>
           <div className="form-group">
             <input type="submit" value="Register Business" className="btn btn-primary"/>
