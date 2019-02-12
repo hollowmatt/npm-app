@@ -6,8 +6,8 @@ export default class Create extends Component {
   	this.onChangePersonName = this.onChangePersonName.bind(this);
   	this.onChangeBusinessName = this.onChangeBusinessName.bind(this);
   	this.onChangeGstNumber = this.onChangeGstNumber.bind(this);
-  	this.onSubmit = this.onSubmit.bind(this);
-  	
+  	this.handleClick = this.handleClick.bind(this);
+
 
   	this.state = {
   		person_name: '',
@@ -28,14 +28,15 @@ export default class Create extends Component {
   	this.setState({ business_gst_number: e.target.value });
   }
 
-  onSubmit(e) {
+  handleClick(e) {
     e.preventDefault();
-    console.log(`The values are ${this.state.person_name}, ${this.state.business_name}, and ${this.state.business_gst_number}`)
+    console.log(`The values are ${this.state.person_name}, ${this.state.business_name}, and ${this.state.business_gst_number}`);
     this.setState({
       person_name: '',
       business_name: '',
       business_gst_number: ''
     })
+    return false;
   }
 
   render() {
@@ -68,7 +69,7 @@ export default class Create extends Component {
             		onChange={this.onChangeGstNumber}/>
           </div>
           <div className="form-group">
-            <input type="submit" value="Register Business" className="btn btn-primary"/>
+            <button onClick={this.handleClick} className="btn btn-primary">Reg Biz</button>
           </div>
         </form>
       </div>
